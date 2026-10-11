@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Computer Viruses – BSIT-31A</title>
 <style>
-:root{--navy:#14162e;--red:#e63946;--teal:#2a9d8f;--orange:#f4a261;--ink:#f4f5fb;--mute:#9aa0c0}
+:root{--navy:#14162e;--red:#e63946;--teal:#2a9d8f;--orange:#f4a261;--ink:#f4f5fb;--mute:#c9cee8}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;overflow:hidden;background:#090a18;color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif;font-size:clamp(15px,2.5vmin,26px)}
+html,body{height:100%;overflow:hidden;background:#090a18;color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif;font-size:clamp(18px,3.3vmin,36px);font-weight:500;text-shadow:0 1px 3px rgba(0,0,0,.55)}
 #bg{position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse at 30% 20%,#1b1d3d 0%,#0a0b1a 70%)}
 .vignette{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at center,transparent 40%,rgba(4,4,14,.8) 100%)}
 .scan{position:fixed;left:0;right:0;height:140px;z-index:1;pointer-events:none;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.025),transparent);animation:scan 7s linear infinite}
@@ -18,49 +18,50 @@ html,body{height:100%;overflow:hidden;background:#090a18;color:var(--ink);font-f
 .slide.active{opacity:1;visibility:visible;transform:none;transition:opacity .5s,transform .5s}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
 .slide.active .reveal{opacity:1;transform:none;transition-delay:calc(.2s + var(--i,0)*.12s)}
-h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(28px,5.6vmin,58px);margin-bottom:4vh;line-height:1.1}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(34px,7vmin,76px);margin-bottom:3.5vh;line-height:1.1}
 h2::after{content:"";display:block;width:90px;height:4px;border-radius:2px;margin-top:14px;background:var(--red);box-shadow:0 0 14px var(--red)}
 .safe-h h2::after{background:var(--teal);box-shadow:0 0 14px var(--teal)}
 .sub{color:var(--mute);font-style:italic;margin-bottom:3vh}
-.panel{background:rgba(20,22,46,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:3vh 3vw;box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.panel{background:rgba(14,16,38,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:3vh 3vw;box-shadow:0 10px 40px rgba(0,0,0,.35)}
 .red{color:var(--red)}.teal{color:var(--teal)}.orange{color:var(--orange)}
-
+ 
 /* title */
-.glitch{position:relative;font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:clamp(40px,11vmin,120px);line-height:1;letter-spacing:.02em;text-shadow:0 0 30px rgba(230,57,70,.5)}
+.glitch{position:relative;font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:clamp(44px,12vmin,130px);line-height:1;letter-spacing:.02em;text-shadow:0 0 30px rgba(230,57,70,.5)}
 .glitch::before,.glitch::after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;overflow:hidden;clip-path:inset(0 0 100% 0)}
 .glitch::before{color:var(--red);animation:g1 3.2s infinite steps(1)}
 .glitch::after{color:#22d3ee;animation:g2 2.7s infinite steps(1)}
 @keyframes g1{0%,88%,100%{clip-path:inset(0 0 100% 0);transform:none}90%{clip-path:inset(10% 0 60% 0);transform:translateX(6px)}94%{clip-path:inset(55% 0 15% 0);transform:translateX(-5px)}}
 @keyframes g2{0%,80%,100%{clip-path:inset(0 0 100% 0);transform:none}83%{clip-path:inset(60% 0 10% 0);transform:translateX(-6px)}87%{clip-path:inset(20% 0 55% 0);transform:translateX(5px)}}
-.tagline{font-size:clamp(18px,3.4vmin,34px);color:var(--orange);font-style:italic;margin:2.5vh 0}
+.tagline{font-size:clamp(24px,4.6vmin,52px);color:var(--orange);font-style:italic;margin:2.5vh 0}
 .rule{width:min(300px,40vw);height:4px;background:var(--red);box-shadow:0 0 14px var(--red);margin-bottom:3vh;border-radius:2px}
 .meta b{display:block;margin-bottom:.4em}
-.meta div{color:#d9dcf0;line-height:1.7}
+.meta{font-size:1.1em}
+.meta div{color:#fff;line-height:1.6}
 .by{margin-top:4vh;color:var(--mute)}
-.hint{margin-top:3vh;font-size:.7em;color:var(--mute);letter-spacing:.04em}
+.hint{margin-top:3vh;font-size:.8em;color:var(--mute);letter-spacing:.04em}
 .hint kbd{border:1px solid rgba(255,255,255,.25);border-radius:6px;padding:1px 7px;background:rgba(255,255,255,.06)}
-
+ 
 /* objectives */
-.obj{display:flex;flex-direction:column;gap:2.4vh;max-width:1000px}
-.obj .row{display:flex;gap:1.6vw;align-items:center;padding:1.6vh 1.8vw;background:rgba(20,22,46,.7);border:1px solid rgba(255,255,255,.08);border-radius:14px;backdrop-filter:blur(8px)}
+.obj{display:flex;flex-direction:column;gap:2vh;max-width:1500px}
+.obj .row{display:flex;gap:1.6vw;align-items:center;padding:1.6vh 1.8vw;background:rgba(14,16,38,.9);border:1px solid rgba(255,255,255,.08);border-radius:14px;backdrop-filter:blur(8px)}
 .num{flex:none;width:2.2em;height:2.2em;border-radius:50%;background:var(--red);display:grid;place-items:center;font-family:Georgia,serif;font-weight:700;box-shadow:0 0 16px rgba(230,57,70,.6)}
-
+ 
 /* definition */
 .def{display:grid;grid-template-columns:1.4fr 1fr;gap:4vw;align-items:center}
-.def h3{font-size:1.1em;color:var(--red);margin-bottom:.3em}
-.def p{line-height:1.5;margin-bottom:2.2vh;color:#e4e6f6}
+.def h3{font-size:1.25em;color:var(--red);margin-bottom:.3em}
+.def p{line-height:1.5;margin-bottom:2.2vh;color:#fff}
 .def h3.dark{color:#fff}
 .bigvirus{font-size:clamp(100px,26vmin,260px);text-align:center;animation:float 4s ease-in-out infinite;filter:drop-shadow(0 0 30px rgba(230,57,70,.7))}
 @keyframes float{50%{transform:translateY(-16px) rotate(6deg)}}
-
+ 
 /* types */
 .type{display:grid;grid-template-columns:1.05fr 1fr;gap:4vw;align-items:center}
-.chip{display:inline-block;font-size:.55em;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);border:1px solid var(--orange);border-radius:99px;padding:3px 14px;margin-bottom:1.6vh}
-.tname{display:flex;align-items:center;gap:1.2vw;font-family:Georgia,serif;font-size:clamp(30px,6vmin,62px);color:var(--red);font-weight:700;margin-bottom:2.4vh;text-shadow:0 0 22px rgba(230,57,70,.5)}
+.chip{display:inline-block;font-size:.7em;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);border:1px solid var(--orange);border-radius:99px;padding:3px 14px;margin-bottom:1.6vh}
+.tname{display:flex;align-items:center;gap:1.2vw;font-family:Georgia,serif;font-size:clamp(40px,8vmin,90px);color:var(--red);font-weight:700;margin-bottom:2.4vh;text-shadow:0 0 22px rgba(230,57,70,.5)}
 .tname .ic{font-family:"Segoe UI",sans-serif;font-size:.8em;color:#fff}
-.tdesc{font-size:1.25em;line-height:1.5;color:#e9ebf8}
+.tdesc{font-size:1.3em;line-height:1.45;color:#fff}
 .mock{width:100%}
-.bsod{background:#0078d7;aspect-ratio:16/10;padding:6%;font-size:clamp(9px,1.5vmin,15px);border-radius:8px;box-shadow:0 0 50px rgba(0,120,215,.45);animation:flick 5s infinite}
+.bsod{background:#0078d7;aspect-ratio:16/10;padding:6%;font-size:clamp(12px,2.2vmin,24px);border-radius:8px;box-shadow:0 0 50px rgba(0,120,215,.45);animation:flick 5s infinite}
 @keyframes flick{0%,93%,100%{filter:none}95%{filter:brightness(1.5) hue-rotate(20deg)}97%{filter:brightness(.6)}}
 .bsod .sad{font-size:6em;line-height:1;margin-bottom:.2em}
 .bsod p{margin:.5em 0;max-width:34em}
@@ -80,7 +81,7 @@ h2::after{content:"";display:block;width:90px;height:4px;border-radius:2px;margi
 .horse{position:absolute;right:-2%;bottom:-6%;font-size:4em;animation:float 4s ease-in-out infinite}
 @keyframes tflip{0%,45%{opacity:1;transform:none}50%,95%{opacity:0;transform:scale(.9) rotateY(90deg)}100%{opacity:1}}
 @keyframes tflip2{0%,45%{opacity:0;transform:scale(.9) rotateY(90deg)}50%,95%{opacity:1;transform:none}100%{opacity:0}}
-.dlg{background:#f0f0f0;color:#111;border-radius:6px;box-shadow:0 0 45px rgba(230,57,70,.4);font-size:clamp(10px,1.7vmin,16px);overflow:hidden;animation:shake 6s infinite}
+.dlg{background:#f0f0f0;color:#111;border-radius:6px;box-shadow:0 0 45px rgba(230,57,70,.4);font-size:clamp(13px,2.3vmin,26px);overflow:hidden;animation:shake 6s infinite}
 @keyframes shake{0%,90%,100%{transform:none}92%{transform:translateX(-4px)}94%{transform:translateX(4px)}96%{transform:translateX(-3px)}}
 .dlg .tb{background:#fff;padding:.7em 1em;display:flex;justify-content:space-between;border-bottom:1px solid #ddd}
 .dlg .bd{padding:1.2em 1.4em}
@@ -88,54 +89,54 @@ h2::after{content:"";display:block;width:90px;height:4px;border-radius:2px;margi
 .dlg .hd{display:flex;gap:.7em;align-items:center;font-weight:700}
 .dlg .btn{display:inline-block;margin-top:.8em;border:2px solid #0078d7;padding:.3em 2em;float:right;background:#e5f1fb}
 .dlg a{color:#0066cc}
-
+ 
 /* antivirus */
-.av{display:grid;grid-template-columns:1.5fr 1fr;gap:4vw;align-items:center}
+.av{display:grid;grid-template-columns:1.9fr 1fr;gap:4vw;align-items:center}
 .bul{list-style:none;display:flex;flex-direction:column;gap:2.2vh}
-.bul li{position:relative;padding:1.6vh 1.6vw 1.6vh 3em;background:rgba(20,22,46,.75);border:1px solid rgba(42,157,143,.25);border-radius:12px;line-height:1.4;backdrop-filter:blur(8px)}
+.bul li{position:relative;font-size:.82em;padding:1.4vh 1.4vw 1.4vh 2.6em;background:rgba(14,16,38,.92);border:1px solid rgba(42,157,143,.25);border-radius:12px;line-height:1.4;backdrop-filter:blur(8px)}
 .bul li::before{content:"";position:absolute;left:1.2em;top:50%;width:.9em;height:.9em;margin-top:-.45em;border-radius:50%;background:var(--teal);box-shadow:0 0 12px var(--teal)}
 .shieldwrap{display:grid;place-items:center}
 .shield{position:relative;width:min(34vmin,300px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;text-align:center;font-weight:800;font-size:clamp(22px,4.6vmin,46px);line-height:1.15;letter-spacing:.04em;color:#dff7f3;background:radial-gradient(circle,#0f3a42,#0a1c2b);box-shadow:0 0 50px rgba(42,157,143,.5)}
 .shield::before{content:"";position:absolute;inset:-6px;border-radius:50%;background:conic-gradient(from 0deg,transparent,#2dd4bf,transparent 40%);animation:spin 2.6s linear infinite;-webkit-mask:radial-gradient(circle,transparent 62%,#000 63%);mask:radial-gradient(circle,transparent 62%,#000 63%)}
 @keyframes spin{to{transform:rotate(360deg)}}
 .shield::after{content:"";position:absolute;inset:8%;border-radius:50%;border:2px dashed rgba(45,212,191,.35);animation:spin 18s linear infinite reverse}
-
+ 
 /* infected / avoid */
 .grid6{display:grid;grid-template-columns:1fr 1fr;gap:2.4vh 2vw}
-.card{display:flex;align-items:center;gap:1.2vw;padding:2.4vh 1.6vw;background:rgba(20,22,46,.75);border:1px solid rgba(255,255,255,.09);border-radius:14px;backdrop-filter:blur(8px);transition:transform .25s,box-shadow .25s,border-color .25s;cursor:default}
+.card{display:flex;align-items:center;gap:1.2vw;padding:2.4vh 1.6vw;background:rgba(14,16,38,.92);border:1px solid rgba(255,255,255,.09);border-radius:14px;backdrop-filter:blur(8px);transition:transform .25s,box-shadow .25s,border-color .25s;cursor:default}
 .card:hover{transform:translateY(-4px) scale(1.02);border-color:var(--red);box-shadow:0 0 28px rgba(230,57,70,.55)}
 .card .e{font-size:1.9em;filter:grayscale(1) brightness(2)}
 .avoid{display:grid;grid-template-columns:1.5fr 1fr;gap:4vw;align-items:center}
 .alist{display:flex;flex-direction:column;gap:2vh}
-.arow{display:flex;gap:1.2vw;align-items:center;padding:1.4vh 1.4vw;background:rgba(20,22,46,.72);border-radius:14px;border:1px solid rgba(42,157,143,.25);backdrop-filter:blur(8px)}
+.arow{display:flex;gap:1.2vw;align-items:center;padding:1.4vh 1.4vw;background:rgba(14,16,38,.92);border-radius:14px;border:1px solid rgba(42,157,143,.25);backdrop-filter:blur(8px)}
 .dot{flex:none;width:2.1em;height:2.1em;border-radius:50%;background:var(--teal);display:grid;place-items:center;box-shadow:0 0 14px rgba(42,157,143,.7)}
 .bigshield{font-size:clamp(120px,32vmin,300px);text-align:center;animation:float 4s ease-in-out infinite;filter:drop-shadow(0 0 34px rgba(42,157,143,.7))}
-
+ 
 /* recap */
 .two{display:grid;grid-template-columns:1fr 1fr;gap:3vw}
-.two h3{font-family:Georgia,serif;margin-bottom:2vh}
-.two ul{list-style:none;display:flex;flex-direction:column;gap:2vh;font-size:1.2em}
+.two h3{font-family:Georgia,serif;margin-bottom:2vh;font-size:1.3em}
+.two ul{list-style:none;display:flex;flex-direction:column;gap:2vh;font-size:1.3em}
 .two li::before{content:"●";margin-right:.6em;font-size:.7em;vertical-align:middle;color:#fff}
-
+ 
 /* check */
-.qa{margin-bottom:2vh;border:1px solid rgba(230,57,70,.5)}
+.qa{margin-bottom:1.6vh;padding:2vh 2.4vw;font-size:.85em;border:1px solid rgba(230,57,70,.5)}
 .qa b{color:var(--red);font-size:1.1em}
 .rv{margin-top:1.2vh;display:block;background:transparent;color:var(--orange);border:1px solid var(--orange);border-radius:99px;padding:.3em 1.2em;cursor:pointer;font:inherit;font-size:.7em}
 .rv:hover{background:var(--orange);color:#14162e}
-.answer{max-height:0;overflow:hidden;opacity:0;transition:max-height .45s,opacity .45s,margin .45s;color:#bff2e9;font-size:.85em;line-height:1.5}
-.answer.open{max-height:220px;opacity:1;margin-top:1.2vh}
-.qa.eval{background:rgba(120,30,40,.35);font-size:.85em}
-
-.verse{font-family:Georgia,serif;font-style:italic;font-size:clamp(20px,3.6vmin,38px);line-height:1.5;max-width:900px;margin:3vh 0 1.5vh}
-.refs li{margin:1.2vh 0;color:#d9dcf0;line-height:1.4}
+.answer{max-height:0;overflow:hidden;opacity:0;transition:max-height .45s,opacity .45s,margin .45s;color:#c8fff4;font-size:.92em;line-height:1.5}
+.answer.open{max-height:320px;opacity:1;margin-top:1.2vh}
+.qa.eval{background:rgba(90,20,30,.92);font-size:.78em}
+ 
+.verse{font-family:Georgia,serif;font-style:italic;font-size:clamp(28px,5.2vmin,60px);line-height:1.45;max-width:1400px;margin:3vh 0 1.5vh}
+.refs li{margin:1.6vh 0;color:#fff;line-height:1.4;font-size:.95em}
 .refs{list-style:none}
-
+ 
 /* chrome */
-.foot{position:fixed;left:0;right:0;bottom:0;z-index:9;display:flex;align-items:center;justify-content:space-between;padding:1.6vh 3vw;font-size:clamp(10px,1.6vmin,15px);color:var(--mute)}
+.foot{position:fixed;left:0;right:0;bottom:0;z-index:9;display:flex;align-items:center;justify-content:space-between;padding:1.6vh 3vw;font-size:clamp(13px,2vmin,22px);color:var(--mute)}
 .foot .l{transition:opacity .4s}
 body.first .foot .l{opacity:0}
 .nav{display:flex;align-items:center;gap:12px}
-.nav button{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;font-size:16px;cursor:pointer;transition:.2s}
+.nav button{width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;font-size:16px;cursor:pointer;transition:.2s}
 .nav button:hover{background:var(--red);border-color:var(--red);box-shadow:0 0 14px var(--red)}
 .hud{color:var(--orange)}
 @media(max-width:820px){.def,.type,.av,.avoid,.two,.grid6{grid-template-columns:1fr}.bigvirus,.bigshield{display:none}.slide{padding:6vh 6vw 12vh;overflow:auto;justify-content:flex-start}}
@@ -147,9 +148,9 @@ body.first .foot .l{opacity:0}
 <div class="vignette"></div>
 <div class="scan"></div>
 <div class="progress" id="prog"></div>
-
+ 
 <main class="deck">
-
+ 
 <!-- 1 Title -->
 <section class="slide active" id="s1" data-tint="danger">
   <div class="glitch reveal" style="--i:0" data-text="COMPUTER VIRUSES">COMPUTER VIRUSES</div>
@@ -163,7 +164,7 @@ body.first .foot .l{opacity:0}
   <div class="by reveal" style="--i:4">Prepared by: Dwight Zachkarry Paul S. Peñano</div>
   <div class="hint reveal" style="--i:5">Press <kbd>→</kbd> to start &nbsp;·&nbsp; click a virus to pop it &nbsp;·&nbsp; <kbd>F</kbd> fullscreen</div>
 </section>
-
+ 
 <!-- 2 Objectives -->
 <section class="slide" id="s2" data-tint="warn">
   <h2 class="reveal" style="--i:0">Learning Objectives</h2>
@@ -176,7 +177,7 @@ body.first .foot .l{opacity:0}
     <div class="row reveal" style="--i:6"><span class="num">5</span>List at least 3 ways to prevent virus infection.</div>
   </div>
 </section>
-
+ 
 <!-- 3 What is -->
 <section class="slide" id="s3" data-tint="danger">
   <h2 class="reveal" style="--i:0">What is a Computer Virus?</h2>
@@ -192,7 +193,7 @@ body.first .foot .l{opacity:0}
     <div class="bigvirus reveal" style="--i:3">🦠</div>
   </div>
 </section>
-
+ 
 <!-- 4 Boot sector -->
 <section class="slide" id="s4" data-tint="danger">
   <h2 class="reveal" style="--i:0">Types of Computer Viruses</h2>
@@ -212,7 +213,7 @@ body.first .foot .l{opacity:0}
     </div>
   </div>
 </section>
-
+ 
 <!-- 5 File -->
 <section class="slide" id="s5" data-tint="danger">
   <h2 class="reveal" style="--i:0">Types of Computer Viruses</h2>
@@ -228,7 +229,7 @@ body.first .foot .l{opacity:0}
     </div>
   </div>
 </section>
-
+ 
 <!-- 6 Trojan -->
 <section class="slide" id="s6" data-tint="danger">
   <h2 class="reveal" style="--i:0">Types of Computer Viruses</h2>
@@ -245,7 +246,7 @@ body.first .foot .l{opacity:0}
     </div>
   </div>
 </section>
-
+ 
 <!-- 7 Macro -->
 <section class="slide" id="s7" data-tint="danger">
   <h2 class="reveal" style="--i:0">Types of Computer Viruses</h2>
@@ -270,7 +271,7 @@ body.first .foot .l{opacity:0}
     </div>
   </div>
 </section>
-
+ 
 <!-- 8 Antivirus -->
 <section class="slide safe-h" id="s8" data-tint="safe">
   <h2 class="reveal" style="--i:0">Virus Detection &amp; Removal: Antivirus Program</h2>
@@ -284,7 +285,7 @@ body.first .foot .l{opacity:0}
     <div class="shieldwrap reveal" style="--i:3"><div class="shield">ANTI<br>VIRUS</div></div>
   </div>
 </section>
-
+ 
 <!-- 9 Infected -->
 <section class="slide" id="s9" data-tint="danger">
   <h2 class="reveal" style="--i:0">How Does a Computer Get Infected?</h2>
@@ -297,7 +298,7 @@ body.first .foot .l{opacity:0}
     <div class="card reveal" style="--i:6"><span class="e">🐞</span>Accepting prompts or files without reading them</div>
   </div>
 </section>
-
+ 
 <!-- 10 Avoid -->
 <section class="slide safe-h" id="s10" data-tint="safe">
   <h2 class="reveal teal" style="--i:0">How to Avoid a Virus</h2>
@@ -312,7 +313,7 @@ body.first .foot .l{opacity:0}
     <div class="bigshield reveal" style="--i:3">🛡️</div>
   </div>
 </section>
-
+ 
 <!-- 11 Recap -->
 <section class="slide" id="s11" data-tint="warn">
   <h2 class="reveal" style="--i:0">Quick Recap</h2>
@@ -327,7 +328,7 @@ body.first .foot .l{opacity:0}
     </div>
   </div>
 </section>
-
+ 
 <!-- 12 Check -->
 <section class="slide" id="s12" data-tint="warn">
   <h2 class="reveal" style="--i:0">Let's Check Your Understanding!</h2>
@@ -347,7 +348,7 @@ body.first .foot .l{opacity:0}
     <div class="answer">(1) A file virus attaches to or replaces program files and spreads to any file that accesses the infected program; a Trojan horse hides in or imitates a legitimate program. (2) Infected by opening email attachments; prevented by keeping the OS and antivirus up to date.</div>
   </div>
 </section>
-
+ 
 <!-- 13 Assignment -->
 <section class="slide" id="s13" data-tint="warn">
   <h2 class="reveal" style="--i:0">Assignment</h2>
@@ -356,14 +357,14 @@ body.first .foot .l{opacity:0}
     <div class="row reveal" style="--i:2"><span class="num">2</span>Bring one example of a "safe vs. risky" download habit to discuss next meeting.</div>
   </div>
 </section>
-
+ 
 <!-- 14 Thanks -->
 <section class="slide safe-h" id="s14" data-tint="safe">
   <h2 class="reveal teal" style="--i:0">Thank you for listening!</h2>
   <div class="verse reveal" style="--i:1">"Be alert and of sober mind. Your enemy the devil prowls around like a roaring lion looking for someone to devour."</div>
-  <div class="reveal orange" style="--i:2">1 Peter 5:8</div>
+  <div class="reveal orange" style="--i:2;font-size:1.3em">1 Peter 5:8</div>
 </section>
-
+ 
 <!-- 15 References -->
 <section class="slide" id="s15" data-tint="warn">
   <h2 class="reveal" style="--i:0">References</h2>
@@ -375,19 +376,28 @@ body.first .foot .l{opacity:0}
   </ul>
 </section>
 </main>
-
+ 
 <div class="foot">
   <span class="l">IT11/CS11 – Introduction to Computing | Module 5: Computer Viruses</span>
   <span class="hud" id="hud"></span>
   <div class="nav"><button id="prev" aria-label="Previous">◀</button><span id="count">1 / 15</span><button id="next" aria-label="Next">▶</button></div>
 </div>
-
+ 
 <script>
 /* ---------- slide navigation ---------- */
 const slides=[...document.querySelectorAll('.slide')];
 let cur=0;
 const TINT={danger:[[230,57,70],1,'#e63946'],warn:[[244,162,97],.8,'#f4a261'],safe:[[42,157,143],.45,'#2a9d8f']};
 let target=TINT.danger[0],targetSpeed=1;
+/* shrink a slide's text slightly if it would overflow the screen */
+function fit(){
+  const s=slides[cur];if(!s||innerWidth<=820)return;
+  s.style.fontSize='';
+  let size=parseFloat(getComputedStyle(s).fontSize),n=0;
+  const avail=s.clientHeight*.84;
+  const ext=()=>{let top=1e9,bot=0;for(const c of s.children){top=Math.min(top,c.offsetTop);bot=Math.max(bot,c.offsetTop+c.offsetHeight)}return bot-top};
+  while(n<14&&ext()>avail){size*=.94;s.style.fontSize=size+'px';n++}
+}
 function go(n){
   n=Math.max(0,Math.min(slides.length-1,n));
   slides.forEach((s,i)=>s.classList.toggle('active',i===n));
@@ -398,6 +408,7 @@ function go(n){
   p.style.width=((cur+1)/slides.length*100)+'%';p.style.background=t[2];p.style.boxShadow='0 0 12px '+t[2];
   document.getElementById('count').textContent=(cur+1)+' / '+slides.length;
   document.body.classList.toggle('first',cur===0);
+  fit();
   if(changed&&window.shock)window.shock();
   try{history.replaceState(null,'','#'+(cur+1))}catch(e){}
 }
@@ -416,15 +427,16 @@ addEventListener('touchend',e=>{if(tx===null)return;const dx=e.changedTouches[0]
 document.querySelectorAll('.rv').forEach(b=>b.onclick=()=>{
   const a=b.nextElementSibling;a.classList.toggle('open');
   b.textContent=a.classList.contains('open')?'Hide answer':'Reveal answer';
+  setTimeout(fit,500);
 });
 setInterval(()=>{if(slides[cur].id==='s4'){const el=document.getElementById('pct');el.textContent=(+el.textContent+3)%101}},160);
-
+ 
 /* ---------- virus swarm ---------- */
 const cv=document.getElementById('bg'),ctx=cv.getContext('2d');
 const TAU=Math.PI*2,rnd=(a,b)=>a+Math.random()*(b-a);
 let W,H,DPR;
 function resize(){DPR=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0)}
-resize();addEventListener('resize',resize);
+resize();addEventListener('resize',()=>{resize();fit()});
 const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
 let col=[230,57,70],speedMul=1,zapped=0;
 const viruses=[],parts=[],mouse={x:-999,y:-999};
@@ -471,7 +483,7 @@ class Virus{
 const base=Math.round(Math.min(22,Math.max(9,W*H/75000)));
 for(let i=0;i<base;i++)viruses.push(new Virus());
 const MAX=base+8;
-
+ 
 /* replication: a virus occasionally splits */
 setInterval(()=>{
   if(document.hidden||!viruses.length)return;
@@ -481,10 +493,10 @@ setInterval(()=>{
   const c=new Virus(p.x,p.y,p.r*.6);c.bx=rnd(-.8,.8);c.by=rnd(-.8,.8);c.vx=c.bx*2;c.vy=c.by*2;
   viruses.push(c);
 },2600);
-
+ 
 /* infection wave on slide change */
 window.shock=()=>viruses.forEach(v=>{const a=rnd(0,TAU);v.vx+=Math.cos(a)*3;v.vy+=Math.sin(a)*3});
-
+ 
 /* click to pop */
 function burst(x,y,n){for(let i=0;i<n;i++){const a=rnd(0,TAU),s=rnd(1,5);parts.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:1,r:rnd(1.5,4)})}}
 addEventListener('pointerdown',e=>{
@@ -498,7 +510,7 @@ addEventListener('pointerdown',e=>{
 });
 addEventListener('pointermove',e=>{mouse.x=e.clientX;mouse.y=e.clientY});
 document.addEventListener('pointerleave',()=>{mouse.x=mouse.y=-999});
-
+ 
 let last=performance.now();
 function frame(now){
   const k=Math.min(3,(now-last)/16.7);last=now;
@@ -521,8 +533,9 @@ function frame(now){
   requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);
-
+ 
 const h=parseInt(location.hash.slice(1));go(h>=1&&h<=slides.length?h-1:0);
 </script>
 </body>
 </html>
+ 
